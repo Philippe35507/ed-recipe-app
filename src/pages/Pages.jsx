@@ -1,11 +1,11 @@
 import Home from "./Home";
 
-const Pages = () => {
+function Pages() {
   return (
     <div>
       <Home />
     </div>
   );
-};
+}
 
 export default Pages;
