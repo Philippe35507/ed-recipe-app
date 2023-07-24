@@ -15,7 +15,7 @@ function Cuisine() {
     setCuisine(recipes.results);
   };
   useEffect(() => {
-    // getCuisine("Italian");
+    getCuisine(params.type);
     console.log(params.type);
   }, [params.type]);
   return <div></div>;
