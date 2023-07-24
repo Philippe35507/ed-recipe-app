@@ -11,11 +11,20 @@ function Popular() {
   }, []);
 
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=a1fffd88cfe64158a8c4ce62e1dca228&number=9`
-    );
-    const data = await api.json();
-    setPopular(data.recipes);
+    const check = localStorage.getItem("popular");
+
+    if (check) {
+      setPopular(JSON.parse(check));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=a1fffd88cfe64158a8c4ce62e1dca228&number=9`
+      );
+      const data = await api.json();
+
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+      setPopular(data.recipes);
+      console.log(data.recipes);
+    }
   };
 
   return (
