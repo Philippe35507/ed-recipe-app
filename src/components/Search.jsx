@@ -3,11 +3,21 @@ import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
 function Search() {
+  const [input, setInput] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <FormStyle>
+    <FormStyle onSubmit={submitHandler}>
       <div>
         <FaSearch />
-        <input type="text"></input>
+        <input
+          onChange={(e) => setInput(e.target.value)}
+          type="text"
+          value={input}
+        ></input>
       </div>
     </FormStyle>
   );
